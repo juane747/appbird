@@ -14,20 +14,20 @@ class HomeController extends Controller
         // Especifica la ruta al archivo cacert.pem
         $cacertPath = storage_path('app/cacert.pem');
 
-        // Realiza la llamada a la API utilizando el certificado
+        // LLamada a la api usando certificado
         $response = Http::withOptions([
             'verify' => $cacertPath,
         ])->get('https://xeno-canto.org/api/2/recordings?query=cnt:guatemala');
 
-        // Verifica si la llamada a la API fue exitosa
+        // Llama exitosa exitosa api
         if ($response->successful()) {
-            // Obtén los datos de la respuesta JSON
+            // Datos obtenidos de la llamada JSON
             $apiData = $response->json();
 
-            // Puedes pasar estos datos a la vista de la siguiente manera
+            // Pasando datos a la vista
             return view('otra-pagina', ['apiData' => $apiData]);
         } else {
-            // En caso de error, maneja la respuesta de la API según sea necesario
+            // En caso de error,respuesta
             $errorMessage = $response->status() . ' ' . $response->reason();
             return view('error', ['errorMessage' => $errorMessage]);
         }

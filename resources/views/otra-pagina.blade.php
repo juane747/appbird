@@ -17,12 +17,10 @@
             <audio controls>
                 <source src="{{ $recording['file'] }}" type="audio/mp3">
             </audio>
-
             <p><strong>Familia: </strong>{{$recording['gen']}}</p>
             <p><strong>Nombre: </strong>{{ $recording['en'] }} </p>
             <p><strong>Ubicación: </strong> {{ $recording['cnt'] }} {{ $recording['loc'] }} </p>
             <p><strong>Descubridor: </strong> {{ $recording['rec'] }}</p>
-
         </div>
         <hr>
     @endforeach
